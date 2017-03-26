@@ -1,0 +1,44 @@
+<html id="htmll">
+<head id="headd">
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.js"></script>-->
+    <script>alert("alert1");</script>
+</head>
+<body id="boody">
+<h1>Demo</h1>
+<div id="parent"></div>
+<span id="p2"></span>
+<script>
+    console.debug("debug");
+    var script = document.createElement("script");
+    script.id = "script";
+    script.innerHTML = "console.log('say hi');";
+    document.getElementById("parent").appendChild(script);
+
+    var script2 = document.createElement("script");
+    script2.id = "script2";
+    script2.innerHTML = "console.log('say2');";
+    document.getElementById("p2").appendChild(script2);
+
+    var paragraph = document.createElement("p");
+    paragraph.id = "paragraph";
+    paragraph.innerHTML = "console.log('p');";
+    document.getElementsByTagName("body")[0].appendChild(paragraph);
+
+    function createBoldText() {
+        var bold = document.createElement("b");
+        bold.id = "bold";
+        bold.innerHTML = "FETT";
+        paragraph.appendChild(bold);
+    }
+    createBoldText();
+
+    function loadMalicious() {
+        var maliciousScript = document.createElement("script");
+        maliciousScript.src = "./malicious.js";
+        document.body.appendChild(maliciousScript);
+        console.log("malicious code was injected");
+    }
+    loadMalicious();
+</script>
+</body>
+</html>
